@@ -4,6 +4,7 @@ using Arts.DataAccess.EntityFramework.Concrete.Uow;
 using Core.Utility;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace Arts.Infrastructure
 {
@@ -11,8 +12,10 @@ namespace Arts.Infrastructure
     {
         public static IServiceCollection AddPersistence(this IServiceCollection services)
         {
+            var connectionString = Environment.GetEnvironmentVariable("MSSQL_URI");
             services.AddSingleton<IMapper, Mapper>();
-            services.AddDbContextPool<ArtDbContext>(options => options.UseLazyLoadingProxies().UseSqlServer("Server=.\\SQLExpress;Database=Arts;Trusted_Connection=True;"));
+            services.AddDbContextPool<ArtDbContext>(options => options.UseLazyLoadingProxies()
+            .UseSqlServer(connectionString));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             return services;
         }
