@@ -7,11 +7,10 @@ namespace Arts.Infrastructure
 {
     public static class FluentValidation
     {
-        public static IServiceCollection AddFluentValidation(this IServiceCollection services)
+        public static void AddFluentValidation(this IServiceCollection services)
         {
             services.AddScoped<IValidator<UserLoginDto>, UserLoginValidation>();
             services.AddScoped<IValidator<UserRegisterDto>, UserRegisterValidation>();
-            return services;
         }
     }
 }

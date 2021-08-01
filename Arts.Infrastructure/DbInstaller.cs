@@ -10,14 +10,13 @@ namespace Arts.Infrastructure
 {
     public static class DbInstaller
     {
-        public static IServiceCollection AddPersistence(this IServiceCollection services)
+        public static void AddPersistence(this IServiceCollection services)
         {
             var connectionString = Environment.GetEnvironmentVariable("MSSQL_URI");
             services.AddSingleton<IMapper, Mapper>();
             services.AddDbContextPool<ArtDbContext>(options => options.UseLazyLoadingProxies()
-            .UseSqlServer(connectionString));
+            .UseSqlServer(connectionString ?? throw new InvalidOperationException()));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            return services;
         }
     }
 }

@@ -21,8 +21,8 @@ namespace Arts.WebApi
             {
                 var dbContext = service.GetRequiredService<ArtDbContext>();
                 dbContext.Database.Migrate();
-                var loginclaims = dbContext.LoginClaims.Any();
-                if (!loginclaims)
+                var anyLoginClaims = dbContext.LoginClaims.Any();
+                if (!anyLoginClaims)
                 {
                     var loginClaims = Enum.GetValues(typeof(ClaimEnum)).Cast<ClaimEnum>();
                     foreach (var claim in loginClaims)

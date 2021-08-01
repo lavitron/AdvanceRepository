@@ -7,11 +7,10 @@ namespace Arts.Infrastructure
 {
     public static class ServiceInstaller
     {
-        public static IServiceCollection AddService(this IServiceCollection services)
+        public static void AddService(this IServiceCollection services)
         {
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<ITokenHelper, TokenHelper>();
-            return services;
         }
     }
 }

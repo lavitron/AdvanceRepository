@@ -55,7 +55,7 @@ namespace Arts.WebApi
                     ClockSkew = TimeSpan.Zero
                 };
             });
-            
+
             //Swagger authorize button
             services.AddSwaggerGen(c =>
             {
@@ -64,7 +64,7 @@ namespace Arts.WebApi
                 var securityScheme = new OpenApiSecurityScheme
                 {
                     Name = "JWT Authentication",
-                    Description = "Enter JWT Bearer token **_only_**",
+                    Description = "Enter JWT Bearer token",
                     In = ParameterLocation.Header,
                     Type = SecuritySchemeType.Http,
                     Scheme = "bearer", // must be lower case
@@ -80,28 +80,9 @@ namespace Arts.WebApi
                 {
                     {securityScheme, Array.Empty<string>()}
                 });
-
-                // Add Basic Authentication
-                var basicSecurityScheme = new OpenApiSecurityScheme
-                {
-                    Type = SecuritySchemeType.Http,
-                    Scheme = "basic",
-                    Reference = new OpenApiReference { Id = "BasicAuth", Type = ReferenceType.SecurityScheme }
-                };
-                c.AddSecurityDefinition(basicSecurityScheme.Reference.Id, basicSecurityScheme);
-                c.AddSecurityRequirement(new OpenApiSecurityRequirement
-                {
-                    {basicSecurityScheme, Array.Empty<string>()}
-                });
             });
-
-            // services.AddSwaggerGen(c =>
-            // {
-            //     c.SwaggerDoc("v1", new OpenApiInfo {Title = "Arts.WebApi", Version = "v1"});
-            // });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public static void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
