@@ -13,7 +13,7 @@ namespace Arts.DataAccess.EntityFramework.Concrete.Configuration.Art
             builder.Property(p => p.Name).HasMaxLength(100).IsRequired();
             builder.Property(p => p.Surname).HasMaxLength(100).IsRequired();
             builder.Property(p => p.Nationality).HasMaxLength(100).IsRequired();
-            builder.Property(p => p.Biography).HasMaxLength(100).IsRequired();
+            builder.Property(p => p.Biography).HasMaxLength(1000).IsRequired();
             builder.HasQueryFilter(p => !p.IsDeleted);
         }
     }

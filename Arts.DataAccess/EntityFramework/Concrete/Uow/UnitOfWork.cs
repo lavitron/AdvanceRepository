@@ -13,6 +13,7 @@ namespace Arts.DataAccess.EntityFramework.Concrete.Uow
         private LoginClaimRepository _loginClaimRepository;
         private UserClaimRepository _userClaimRepository;
         private UserRepository _userRepository;
+        private ArtistArtworkRepository _artistArtworkRepository;
 
         public UnitOfWork(ArtDbContext dbContext)
         {
@@ -22,6 +23,9 @@ namespace Arts.DataAccess.EntityFramework.Concrete.Uow
         public IUserRepository Users => _userRepository ??= new UserRepository(_dbContext);
         public IUserClaimRepository UserClaims => _userClaimRepository ??= new UserClaimRepository(_dbContext);
         public ILoginClaimRepository LoginClaims => _loginClaimRepository ??= new LoginClaimRepository(_dbContext);
+
+        public IArtistArtworkRepository ArtistArtworks =>
+            _artistArtworkRepository ??= new ArtistArtworkRepository(_dbContext);
 
         public int Save()
         {
