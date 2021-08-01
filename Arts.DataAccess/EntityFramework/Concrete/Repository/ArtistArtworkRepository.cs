@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Arts.DataAccess.EntityFramework.Abstract.Repository;
 using Arts.Entity.Dto.ArtistArtwork;
@@ -18,7 +17,6 @@ namespace Arts.DataAccess.EntityFramework.Concrete.Repository
 
         public async Task<PageList<ArtistArtworkListDto>> ListArtistArtworkPgAsyncRm(PaginationInput paginationInput)
         {
-
             return await PageList<ArtistArtworkListDto>
                 .ToPageList(JustRawQuery(p => !p.IsDeleted)
                     .OrderByDescending(p => p.CDate)

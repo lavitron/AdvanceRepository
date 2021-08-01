@@ -12,7 +12,7 @@ namespace Arts.Entity.Entity.Art
         public DateTime? Born { get; set; }
         public DateTime? Died { get; set; }
         public string Biography { get; set; }
-        
+
         public virtual ICollection<ArtistArtwork> ArtistArtworks { get; set; }
     }
 }

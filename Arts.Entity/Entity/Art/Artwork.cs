@@ -11,6 +11,5 @@ namespace Arts.Entity.Entity.Art
         public DateTime? CompletionDate { get; set; }
         public string Description { get; set; }
         public virtual ICollection<ArtistArtwork> ArtistArtworks { get; set; }
-
     }
 }

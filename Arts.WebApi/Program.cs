@@ -26,13 +26,11 @@ namespace Arts.WebApi
                 {
                     var loginClaims = Enum.GetValues(typeof(ClaimEnum)).Cast<ClaimEnum>();
                     foreach (var claim in loginClaims)
-                    {
                         dbContext.Add(new LoginClaim
                         {
                             Name = claim.ToString(),
                             CDate = DateTime.Now
                         });
-                    }
 
                     dbContext.SaveChanges();
                 }

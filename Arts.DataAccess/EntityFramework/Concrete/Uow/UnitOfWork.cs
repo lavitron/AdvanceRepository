@@ -10,10 +10,10 @@ namespace Arts.DataAccess.EntityFramework.Concrete.Uow
     public class UnitOfWork : IUnitOfWork
     {
         private readonly ArtDbContext _dbContext;
+        private ArtistArtworkRepository _artistArtworkRepository;
         private LoginClaimRepository _loginClaimRepository;
         private UserClaimRepository _userClaimRepository;
         private UserRepository _userRepository;
-        private ArtistArtworkRepository _artistArtworkRepository;
 
         public UnitOfWork(ArtDbContext dbContext)
         {

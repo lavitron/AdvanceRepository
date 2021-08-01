@@ -8,6 +8,5 @@ namespace Arts.Entity.Entity.Art
         public int ArtworkId { get; set; }
         public virtual Artist ArtistFk { get; set; }
         public int ArtistId { get; set; }
-
     }
 }

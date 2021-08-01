@@ -9,7 +9,7 @@ namespace Arts.DataAccess.EntityFramework.Abstract.Uow
         IUserRepository Users { get; }
         IUserClaimRepository UserClaims { get; }
         ILoginClaimRepository LoginClaims { get; }
-        IArtistArtworkRepository ArtistArtworks{ get; }
+        IArtistArtworkRepository ArtistArtworks { get; }
 
         int Save();
         Task<int> SaveAsync();

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Arts.Entity.Dto.ArtistArtwork
+﻿namespace Arts.Entity.Dto.ArtistArtwork
 {
     public class ArtistArtworkListDto
     {

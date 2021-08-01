@@ -1,7 +1,7 @@
 ﻿namespace Arts.Entity.Pagination
 {
     /// <summary>
-    /// Takes page number and page size from requesting user.
+    ///     Takes page number and page size from requesting user.
     /// </summary>
     public class PaginationInput
     {
@@ -17,7 +17,7 @@
         public int PageSize
         {
             get => _defaultPageSize;
-            set => _defaultPageSize = (value > MaxPageSize) ? MaxPageSize : value;
+            set => _defaultPageSize = value > MaxPageSize ? MaxPageSize : value;
         }
     }
 }

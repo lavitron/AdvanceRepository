@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -18,12 +17,12 @@ namespace Arts.Entity.Pagination
             AddRange(currentPageItems);
         }
 
-        public int CurrentPage { get; private set; }
+        public int CurrentPage { get; }
 
-        public int TotalPage { get; private set; }
+        public int TotalPage { get; }
 
         //Current page size.
-        public int PageSize { get; private set; }
+        public int PageSize { get; }
 
         //Total item count.
         public int TotalCount { get; set; }

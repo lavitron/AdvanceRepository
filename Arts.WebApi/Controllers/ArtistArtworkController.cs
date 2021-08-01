@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Threading.Tasks;
 using Arts.Business.Abstract;
 using Arts.Entity.Dto.ArtistArtwork;
@@ -22,7 +21,8 @@ namespace Arts.WebApi.Controllers
 
         [HttpPost]
         [Route("GetArtistArtworkList")]
-        public async Task<ActionResult<IEnumerable<ArtistArtworkListDto>>> GetArtistArtworkListAsync(PaginationInput paginationInput)
+        public async Task<ActionResult<IEnumerable<ArtistArtworkListDto>>> GetArtistArtworkListAsync(
+            PaginationInput paginationInput)
         {
             try
             {
@@ -38,8 +38,7 @@ namespace Arts.WebApi.Controllers
                     artistArtworkList.TotalPage
                 };
 
-                return Ok(new { artistArtworkList, pageInformations = pageInformation });
-
+                return Ok(new {artistArtworkList, pageInformations = pageInformation});
             }
             catch (Exception e)
             {

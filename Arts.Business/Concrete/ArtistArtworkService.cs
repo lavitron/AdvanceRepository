@@ -4,7 +4,6 @@ using Arts.DataAccess.EntityFramework.Abstract.Uow;
 using Arts.Entity.Dto.ArtistArtwork;
 using Arts.Entity.Pagination;
 using Core.Utility;
-using Mapster;
 
 namespace Arts.Business.Concrete
 {

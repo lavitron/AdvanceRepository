@@ -7,15 +7,16 @@ namespace Arts.DataAccess.EntityFramework.Concrete.Context
 {
     public class ArtDbContext : DbContext
     {
+        public ArtDbContext(DbContextOptions<ArtDbContext> options) : base(options)
+        {
+        }
+
         public DbSet<User> Users { get; set; }
         public DbSet<UserClaim> UserClaims { get; set; }
         public DbSet<Artist> Artists { get; set; }
         public DbSet<Artwork> Artworks { get; set; }
         public DbSet<ArtistArtwork> ArtistArtworks { get; set; }
         public DbSet<LoginClaim> LoginClaims { get; set; }
-
-        public ArtDbContext(DbContextOptions<ArtDbContext> options) : base(options)
-        { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
